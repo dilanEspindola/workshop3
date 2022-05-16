@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../firebase";
+import { auth } from "../firebase/firebase";
 import {
   GoogleAuthProvider,
   FacebookAuthProvider,
@@ -20,6 +20,11 @@ export const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  const signInWithFacebook = () => {
+    const provider = new FacebookAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (usuarioActual) => {
       setUserState(usuarioActual);
@@ -27,8 +32,12 @@ export const AuthProvider = ({ children }) => {
     });
   }, []);
 
+  console.log(userState);
+
   return (
-    <context.Provider value={{ signInWithGoogle, userState, loading }}>
+    <context.Provider
+      value={{ signInWithGoogle, signInWithFacebook, userState, loading }}
+    >
       {children}
     </context.Provider>
   );
