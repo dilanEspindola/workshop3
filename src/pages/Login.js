@@ -1,21 +1,26 @@
-import React from 'react'
-import { useAuth } from '../context/AuthContext'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
-  const { signInWithGoogle, signInWithFacebook, userState, loading } = useAuth()
+  const { signInWithGoogle, signInWithFacebook, userState, loading } =
+    useAuth();
+  const navigate = useNavigate();
 
-  const loginFacebook = async() =>{
-    await signInWithFacebook()
-    console.log(userState)
-  }
+  const loginGoogle = async () => {
+    try {
+      await signInWithGoogle();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
-      <button onClick={loginFacebook}>
-        Facebook
-      </button>
+      <button onClick={loginGoogle}>google</button>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
