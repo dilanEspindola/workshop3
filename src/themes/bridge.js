@@ -1,5 +1,5 @@
 module.exports.themeGeneral = {
-  primary: '#fed941',
+  primary: '#282222',
   secondary: '#19857b',
   accent: '#512Da8',
   error: '#f82b2f',

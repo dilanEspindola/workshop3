@@ -7,7 +7,7 @@ export const ProctedRoutes = ({ children }) => {
 
   if (loading) return <h1>cargando</h1>;
 
-  if (!userState) return <Navigate to="/login" />;
+  if (!userState) return <Navigate to="/initial" />;
 
   return <div>{children}</div>;
-};
+}

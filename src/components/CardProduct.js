@@ -10,24 +10,24 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 const CardProduct = (props) => {
   return (
     <Card
-      className="relative w-[170px] h-[240px] border-2"
+      className="relative w-full h-[220px] border-2"
       variant="outlined"
     >
       <div
         className="
           flex justify-center
-          w-full h-[170] py-5
+          w-full h-[170] py-5 object-cover
           bg-gradient-to-r from-[#7FE0F2] via-white to-[#FCFFFF]
         "
       >
         <img
-          className=" w-full h-[130] object-cover"
-          src="https://res.cloudinary.com/karvaroz/image/upload/v1652709137/my-merc/product1_vnb3o5.png"
+          className=" w-full h-[130px] object-cover object-top"
+          src={props.img}
           alt={props.name}
           />
       </div>
 
-      <div className="absolute top-2 right-2">
+      <div className="absolute top-0 right-0">
         <IconButton>
           <FavoriteBorderIcon />
         </IconButton>
@@ -35,10 +35,10 @@ const CardProduct = (props) => {
 
       <div className="text-sm p-1">
         <h3 className="mb-1 font-light">
-          hola
+          {props.name}
         </h3>
         <p className="font-normal">
-          $120
+          {props.price}
         </p>
       </div>
     </Card>
