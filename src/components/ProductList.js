@@ -7,6 +7,8 @@ import { listProductosAsync,} from '../redux/actions/productsActions'
 
 // Components
 import CardProduct from './CardProduct'
+import Navbar from './Navbar'
+import Slider from './Slider'
 
 const ProductList = () => {
   const dispatch = useDispatch()
@@ -19,8 +21,11 @@ const ProductList = () => {
 
   return (
     <div>
+      <Slider />
+
       <div
         className="
+        mt-5
           w-full h-full z-0
           grid grid-cols-2
           gap-6 gap-y-12 grid-flow-row auto-rows-max
@@ -28,7 +33,7 @@ const ProductList = () => {
           overflow-x-hidden
         "
       >
-        {products.map((product, index ) => (
+        {products.map((product, index) => (
           <CardProduct
             key={index}
             id={product.id}
@@ -39,8 +44,10 @@ const ProductList = () => {
           />
         ))}
       </div>
+      
+      <Navbar />
     </div>
-  )
+  );
 }
 
 export default ProductList
