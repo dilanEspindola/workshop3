@@ -1,4 +1,5 @@
 import {
+  addDoc,
   collection,
   doc,
   getDocs,
@@ -11,6 +12,29 @@ import {
 import Swal from "sweetalert2";
 import { db } from "../../firebase/firebaseConfig";
 import { types } from "../types/types";
+
+/* CREATE DATA USER*/
+
+export const addUser = (user) => {
+  return (dispatch) => {
+    addDoc(collection(db, "users"), user)
+      .then((resp) => {
+        dispatch(addUserSync(user));
+        Swal.fire("Bien Hecho!", "Creado correctamente!", "success");
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire("Oops...", "Ha ocurrido un error", "error");
+      });
+  };
+};
+
+export const addUserSync = (user) => {
+  return {
+    type: types.addUser,
+    payload: user,
+  };
+};
 
 /* UPDATE DATA USER*/
 

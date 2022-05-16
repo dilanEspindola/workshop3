@@ -2,11 +2,15 @@ import { types } from "../types/types";
 
 export const profileReducer = (state = {}, action) => {
   switch (action.type) {
-    case types.update:
+    case types.addUser:
       return {
-        ...state,
+        state,
       };
-
+    case types.updateUser:
+      return {
+        state,
+      };
+      
     default:
       return state;
   }
