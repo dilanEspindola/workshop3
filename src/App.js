@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div>
+    <div className="text-secondary font-bold underline">
       <h1> Hello World! </h1>
     </div>
   );
