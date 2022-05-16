@@ -1,18 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
 
 // Material Ui
-import { ThemeProvider } from '@mui/material/styles'
-import theme from './themes/Material'
+// import { ThemeProvider } from "@mui/material/styles";
+import theme from "./themes/Material";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Auth Context
+import { AuthProvider } from "./context/AuthContext";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ThemeProvider theme={theme}>
-    <React.StrictMode>
+  <React.StrictMode>
+    {/* <ThemeProvider theme={theme}> */}
+    <AuthProvider>
       <App />
-    </React.StrictMode>
-  </ThemeProvider>
-
+    </AuthProvider>
+    {/* </ThemeProvider> */}
+  </React.StrictMode>
 );
