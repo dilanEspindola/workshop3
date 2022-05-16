@@ -1,8 +1,9 @@
+import AppRouter from "./routers/AppRouter";
+
 function App() {
   return (
-    <div className="text-secondary font-bold underline">
-      <h1> Hello World! </h1>
-    </div>
+    <AppRouter />
+
   );
 }
 
