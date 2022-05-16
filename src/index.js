@@ -7,12 +7,16 @@ import './index.css';
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './themes/Material'
 
+import { Provider } from 'react-redux';
+import store from './redux/store/store';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThemeProvider theme={theme}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </ThemeProvider>
-
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </ThemeProvider>
+  </Provider>
 );
