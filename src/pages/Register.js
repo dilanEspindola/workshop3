@@ -23,12 +23,21 @@ const Register = () => {
     password: "",
   });
 
-  const { signInWithGoogle, userEmailPassword } = useAuth();
+  const { signInWithGoogle, userEmailPassword, signInWithFacebook } = useAuth();
   const navigate = useNavigate();
 
   const loginGoogle = async () => {
     try {
       await signInWithGoogle();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const loginFacebook = async () => {
+    try {
+      await signInWithFacebook();
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -119,7 +128,7 @@ const Register = () => {
           <p className="mb-4 text-primary">or</p>
 
           <div className="w-full flex item-center justify-center">
-            <IconButton size="large">
+            <IconButton size="large" onClick={loginFacebook}>
               <FacebookIcon sx={{ fontSize: 32 }} color="primary" />
             </IconButton>
 
