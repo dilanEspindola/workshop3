@@ -17,26 +17,32 @@ const ProductList = () => {
     dispatch(listProductosAsync());
   }, [dispatch]);
 
+  if (!products) return <h1>loading...</h1>;
+
   return (
     <div
       className="
           w-full h-full z-0
-        grid grid-cols-2
-        gap-4 gap-y-4 grid-flow-row auto-rows-max
-        justify-items-stretch
-        overflow-x-hidden
-      "
+          grid grid-cols-2
+          gap-6 gap-y-12 grid-flow-row auto-rows-max
+          justify-items-stretch
+          overflow-x-hidden
+        "
     >
-      {products.map((product, index) => (
-        <CardProduct
-          key={index}
-          id={product.id}
-          image={product.img}
-          name={product.name}
-          vote={product.price}
-          {...product}
-        />
-      ))}
+      {products.length < 1 ? (
+        <h1>loading...</h1>
+      ) : (
+        products.map((product, index) => (
+          <CardProduct
+            key={index}
+            id={product.id}
+            image={product.img}
+            name={product.name}
+            vote={product.price}
+            {...product}
+          />
+        ))
+      )}
     </div>
   );
 };
