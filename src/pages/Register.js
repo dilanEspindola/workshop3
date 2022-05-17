@@ -1,20 +1,29 @@
 // Base
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // Context
 import { useAuth } from "../context/AuthContext";
 
+// hook useForm
+import { useForm } from "../hooks/useForm";
+
 // Material UI
-import { IconButton } from '@mui/material'
+import { IconButton } from "@mui/material";
 
 // Icons
-import FacebookIcon from '@mui/icons-material/Facebook'
-import GoogleIcon from '@mui/icons-material/Google';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GoogleIcon from "@mui/icons-material/Google";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Register = () => {
-  const { signInWithGoogle, signInWithFacebook, userState, loading } = useAuth();
+  const { handleInputChange, values } = useForm({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const { signInWithGoogle, userEmailPassword } = useAuth();
   const navigate = useNavigate();
 
   const loginGoogle = async () => {
@@ -24,7 +33,18 @@ const Register = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = values;
+    try {
+      await userEmailPassword(email, password);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div
@@ -49,7 +69,7 @@ const Register = () => {
         <h3 className="mb-16 text-primary font-bold text-5xl uppercase">
           Style your Clothes
         </h3>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             className="
               w-full h-12
@@ -58,6 +78,8 @@ const Register = () => {
             "
             type="text"
             placeholder="Name"
+            name="name"
+            onChange={handleInputChange}
           />
           <input
             className="
@@ -67,6 +89,8 @@ const Register = () => {
             "
             type="email"
             placeholder="Email"
+            name="email"
+            onChange={handleInputChange}
           />
 
           <input
@@ -77,6 +101,8 @@ const Register = () => {
             "
             type="password"
             placeholder="Password"
+            name="password"
+            onChange={handleInputChange}
           />
 
           <button
@@ -84,29 +110,27 @@ const Register = () => {
               w-full h-12 px-4 py-2
               bg-primary text-white
               rounded-md"
-            >
-              Sign up
-            </button>
+          >
+            Sign up
+          </button>
         </form>
 
         <div className="mt-4 text-center">
-          <p className="mb-4 text-primary">
-            or
-          </p>
+          <p className="mb-4 text-primary">or</p>
 
           <div className="w-full flex item-center justify-center">
             <IconButton size="large">
-              <FacebookIcon sx={{ fontSize: 32 }} color="primary"/>
+              <FacebookIcon sx={{ fontSize: 32 }} color="primary" />
             </IconButton>
 
             <IconButton size="large" onClick={loginGoogle}>
-              <GoogleIcon sx={{ fontSize: 32 }} color="primary"/>
+              <GoogleIcon sx={{ fontSize: 32 }} color="primary" />
             </IconButton>
           </div>
         </div>
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;
