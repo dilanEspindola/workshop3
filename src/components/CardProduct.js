@@ -1,23 +1,23 @@
 // Base
-import React from 'react'
+import React from "react";
 
 // Material UI
-import { Card, IconButton } from '@mui/material'
+import { Card, IconButton } from "@mui/material";
 
 // Icons
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { getProduct } from '../redux/actions/productsActions';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getProduct } from "../redux/actions/productsActions";
 
 const CardProduct = (props) => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const handlerCLickCard = () => {
-      dispatch(getProduct(props.id));
-      navigate(`/detail/${props.id}`);
-    };
+  const handlerCLickCard = () => {
+    dispatch(getProduct(props.id));
+    navigate(`/detail/${props.id}`);
+  };
   return (
     <Card
       className="relative w-full h-[220px] border-2"
@@ -35,7 +35,7 @@ const CardProduct = (props) => {
           className=" w-full h-[130px] object-cover object-top"
           src={props.img}
           alt={props.name}
-          />
+        />
       </div>
 
       <div className="absolute top-0 right-0">
@@ -45,15 +45,11 @@ const CardProduct = (props) => {
       </div>
 
       <div className="text-sm p-1">
-        <h3 className="mb-1 font-light">
-          {props.name}
-        </h3>
-        <p className="font-normal">
-          {props.price}
-        </p>
+        <h3 className="mb-1 font-light">{props.name}</h3>
+        <p className="font-normal">{props.price}</p>
       </div>
     </Card>
-  )
-}
+  );
+};
 
-export default CardProduct
+export default CardProduct;

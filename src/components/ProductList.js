@@ -1,29 +1,29 @@
 // Base
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 // Redux
-import { useDispatch, useSelector } from 'react-redux'
-import { listProductosAsync,} from '../redux/actions/productsActions'
+import { useDispatch, useSelector } from "react-redux";
+import { listProductosAsync } from "../redux/actions/productsActions";
 
 // Components
-import CardProduct from './CardProduct'
-import Navbar from './Navbar'
-import Search from './Search'
-import Slider from './Slider'
+import CardProduct from "./CardProduct";
+import Navbar from "./Navbar";
+import Search from "./Search";
+import Slider from "./Slider";
 
 const ProductList = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const { products } = useSelector(store => store.products)
+  const { products } = useSelector((store) => store.products);
 
   useEffect(() => {
-    dispatch(listProductosAsync())
-  },[dispatch])
+    dispatch(listProductosAsync());
+  }, [dispatch]);
 
   return (
     <div className="">
       <Slider />
-      
+
       <Search />
 
       <div
@@ -51,6 +51,6 @@ const ProductList = () => {
       <Navbar />
     </div>
   );
-}
+};
 
-export default ProductList
+export default ProductList;

@@ -1,20 +1,21 @@
 // Base
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // Context
 import { useAuth } from "../context/AuthContext";
 
 // Material UI
-import { IconButton } from '@mui/material'
+import { IconButton } from "@mui/material";
 
 // Icons
-import FacebookIcon from '@mui/icons-material/Facebook'
-import GoogleIcon from '@mui/icons-material/Google';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import FacebookIcon from "@mui/icons-material/Facebook";
+import GoogleIcon from "@mui/icons-material/Google";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Register = () => {
-  const { signInWithGoogle, signInWithFacebook, userState, loading } = useAuth();
+  const { signInWithGoogle, signInWithFacebook, userState, loading } =
+    useAuth();
   const navigate = useNavigate();
 
   const loginGoogle = async () => {
@@ -24,7 +25,7 @@ const Register = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <div
@@ -84,29 +85,27 @@ const Register = () => {
               w-full h-12 px-4 py-2
               bg-primary text-white
               rounded-md"
-            >
-              Sign up
-            </button>
+          >
+            Sign up
+          </button>
         </form>
 
         <div className="mt-4 text-center">
-          <p className="mb-4 text-primary">
-            or
-          </p>
+          <p className="mb-4 text-primary">or</p>
 
           <div className="w-full flex item-center justify-center">
             <IconButton size="large">
-              <FacebookIcon sx={{ fontSize: 32 }} color="primary"/>
+              <FacebookIcon sx={{ fontSize: 32 }} color="primary" />
             </IconButton>
 
             <IconButton size="large" onClick={loginGoogle}>
-              <GoogleIcon sx={{ fontSize: 32 }} color="primary"/>
+              <GoogleIcon sx={{ fontSize: 32 }} color="primary" />
             </IconButton>
           </div>
         </div>
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Icons
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Login = () => {
   return (

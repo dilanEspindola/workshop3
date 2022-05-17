@@ -1,6 +1,6 @@
 // Base
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Initial = () => {
   return (
@@ -45,7 +45,7 @@ const Initial = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Initial
+export default Initial;

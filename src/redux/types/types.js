@@ -10,4 +10,4 @@ export const types = {
   deleteProduct: "[Products] Delete Product",
   detailProduct: "[Products] Detail Product",
   searchProduct: "[Products] Search Product",
-}
+};

@@ -1,13 +1,11 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import React from "react";
+import { useSelector } from "react-redux";
+import Navbar from "../components/Navbar";
 
 const Detail = () => {
-    const navigate = useNavigate();
-
-     const { img, name, price, description, size, color, category } =
-       useSelector((store) => store.products);
+  const { img, name, price, description, size, color, category } = useSelector(
+    (store) => store.products
+  );
   return (
     <div className="flex flex-col text-center h-screen">
       <img src={img} alt={name} />
@@ -20,6 +18,6 @@ const Detail = () => {
       <Navbar />
     </div>
   );
-}
+};
 
-export default Detail
+export default Detail;

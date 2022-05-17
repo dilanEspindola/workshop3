@@ -8,7 +8,6 @@ import {
   where,
 } from "firebase/firestore";
 
-
 import Swal from "sweetalert2";
 import { db } from "../../firebase/firebaseConfig";
 import { types } from "../types/types";

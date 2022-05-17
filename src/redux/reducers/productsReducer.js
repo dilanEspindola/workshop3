@@ -22,7 +22,7 @@ const productsReducer = (state = initialState, action) => {
           (product) => product.id !== action.payload
         ),
       };
-      
+
     case types.detailProduct:
       return {
         ...action.payload.data(),

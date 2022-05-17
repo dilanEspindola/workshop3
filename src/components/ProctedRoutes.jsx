@@ -10,4 +10,4 @@ export const ProctedRoutes = ({ children }) => {
   if (!userState) return <Navigate to="/initial" />;
 
   return <div>{children}</div>;
-}
+};
