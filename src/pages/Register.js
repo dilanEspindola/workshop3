@@ -1,9 +1,12 @@
 // Base
-import React from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 // Context
 import { useAuth } from "../context/AuthContext";
+
+// hook useForm
+import { useForm } from "../hooks/useForm";
 
 // Material UI
 import { IconButton } from "@mui/material";
@@ -14,13 +17,29 @@ import GoogleIcon from "@mui/icons-material/Google";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Register = () => {
-  const { signInWithGoogle, signInWithFacebook, userState, loading } =
-    useAuth();
+  const { handleInputChange, values } = useForm({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const { signInWithGoogle, userEmailPassword } = useAuth();
   const navigate = useNavigate();
 
   const loginGoogle = async () => {
     try {
       await signInWithGoogle();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = values;
+    try {
+      await userEmailPassword(email, password);
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -50,7 +69,7 @@ const Register = () => {
         <h3 className="mb-16 text-primary font-bold text-5xl uppercase">
           Style your Clothes
         </h3>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             className="
               w-full h-12
@@ -59,6 +78,8 @@ const Register = () => {
             "
             type="text"
             placeholder="Name"
+            name="name"
+            onChange={handleInputChange}
           />
           <input
             className="
@@ -68,6 +89,8 @@ const Register = () => {
             "
             type="email"
             placeholder="Email"
+            name="email"
+            onChange={handleInputChange}
           />
 
           <input
@@ -78,6 +101,8 @@ const Register = () => {
             "
             type="password"
             placeholder="Password"
+            name="password"
+            onChange={handleInputChange}
           />
 
           <button
