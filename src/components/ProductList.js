@@ -20,6 +20,8 @@ const ProductList = () => {
     dispatch(listProductosAsync());
   }, [dispatch]);
 
+  if (!products) return <h1>loading...</h1>;
+
   return (
     <div className="">
       <Slider />
@@ -36,16 +38,20 @@ const ProductList = () => {
           overflow-x-hidden
         "
       >
-        {products.map((product, index) => (
-          <CardProduct
-            key={index}
-            id={product.id}
-            image={product.img}
-            name={product.name}
-            vote={product.price}
-            {...product}
-          />
-        ))}
+        {products.length < 1 ? (
+          <h1>loading...</h1>
+        ) : (
+          products.map((product, index) => (
+            <CardProduct
+              key={index}
+              id={product.id}
+              image={product.img}
+              name={product.name}
+              vote={product.price}
+              {...product}
+            />
+          ))
+        )}
       </div>
 
       <Navbar />
