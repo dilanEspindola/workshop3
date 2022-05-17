@@ -1,11 +1,39 @@
 // Base
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+
+// router-dom
+import { useNavigate } from "react-router-dom";
+
+// auth context
+import { useAuth } from "../context/AuthContext";
+
+//  hook useForm
+import { useForm } from "../hooks/useForm";
 
 // Icons
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { loginEmailPassword } = useAuth();
+
+  const { handleInputChange, values } = useForm({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { email, password } = values;
+      await loginEmailPassword(email, password);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div
       className="
@@ -29,7 +57,7 @@ const Login = () => {
         <h3 className="mb-16 text-primary font-bold text-5xl uppercase">
           Style your Clothes
         </h3>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             className="
             w-full h-12
@@ -38,6 +66,8 @@ const Login = () => {
           "
             type="email"
             placeholder="Email"
+            name="email"
+            onChange={handleInputChange}
           />
 
           <input
@@ -48,6 +78,8 @@ const Login = () => {
           "
             type="password"
             placeholder="Password"
+            name="password"
+            onChange={handleInputChange}
           />
 
           <button
