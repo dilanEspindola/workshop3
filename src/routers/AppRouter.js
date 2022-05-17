@@ -8,6 +8,7 @@ import Home from "../pages/Home";
 import { ProctedRoutes } from "../components/ProctedRoutes";
 // public routes
 import PublicRoutes from "./PublicRoutes";
+import Detail from "../pages/Detail";
 
 const AppRouter = () => {
   return (
@@ -27,6 +28,15 @@ const AppRouter = () => {
           element={
             <ProctedRoutes>
               <User />
+            </ProctedRoutes>
+          }
+        />
+
+        <Route
+          path="/detail/:id"
+          element={
+            <ProctedRoutes>
+              <Detail />
             </ProctedRoutes>
           }
         />

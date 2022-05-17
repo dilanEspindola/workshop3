@@ -1,30 +1,41 @@
-import React from 'react'
-import { types } from '../types/types'
+import { types } from "../types/types";
 
 const initialState = {
   products: [],
-}
+};
 
-const productsReducer = (state=initialState, action) => {
+const productsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.addProduct:
       return {
-        products: [action.payload]
-      }
+        products: [action.payload],
+      };
 
     case types.listProducts:
       return {
-        products: [...action.payload]
-      }
+        products: [...action.payload],
+      };
 
     case types.deleteProduct:
       return {
-        products: state.products.filter(product => product.id !== action.payload)
-      }
+        products: state.products.filter(
+          (product) => product.id !== action.payload
+        ),
+      };
+      
+    case types.detailProduct:
+      return {
+        ...action.payload.data(),
+      };
+
+    case types.searchProduct:
+      return {
+        products: [action.payload],
+      };
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default productsReducer
+export default productsReducer;

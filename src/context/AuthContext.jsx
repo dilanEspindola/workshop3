@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
     });
   }, []);
 
-  console.log(userState);
+  // console.log(userState);
 
   return (
     <context.Provider

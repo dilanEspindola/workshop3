@@ -8,6 +8,7 @@ import { listProductosAsync,} from '../redux/actions/productsActions'
 // Components
 import CardProduct from './CardProduct'
 import Navbar from './Navbar'
+import Search from './Search'
 import Slider from './Slider'
 
 const ProductList = () => {
@@ -20,8 +21,10 @@ const ProductList = () => {
   },[dispatch])
 
   return (
-    <div>
+    <div className="">
       <Slider />
+      
+      <Search />
 
       <div
         className="
@@ -44,7 +47,7 @@ const ProductList = () => {
           />
         ))}
       </div>
-      
+
       <Navbar />
     </div>
   );

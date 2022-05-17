@@ -6,12 +6,23 @@ import { Card, IconButton } from '@mui/material'
 
 // Icons
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getProduct } from '../redux/actions/productsActions';
 
 const CardProduct = (props) => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handlerCLickCard = () => {
+      dispatch(getProduct(props.id));
+      navigate(`/detail/${props.id}`);
+    };
   return (
     <Card
       className="relative w-full h-[220px] border-2"
       variant="outlined"
+      onClick={handlerCLickCard}
     >
       <div
         className="
