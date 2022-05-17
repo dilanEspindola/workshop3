@@ -20,41 +20,16 @@ const CardProduct = (props) => {
   };
 
   const handleClickFavorites = () => {
-    // console.log(props);
     const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    favorites.push(props);
+
+    if (favorites.find((favorite) => favorite.id === props.id)) {
+      alert("Product already added to favorites");
+    } else {
+      favorites.push(props);
+    }
+
     localStorage.setItem("favorites", JSON.stringify(favorites));
     console.log(favorites);
-
-    // const favorite = {
-    //   id: props.id,
-    //   name: props.name,
-    //   price: props.price,
-    //   image: props.image,
-    // };
-
-    // if (localStorage.getItem("favorites") === null) {
-    //   let favorites = [];
-    //   favorites.push(favorite);
-    //   localStorage.setItem("favorites", JSON.stringify(favorite));
-    // } else {
-    //   let favorites = JSON.parse(localStorage.getItem("favorites"));
-    //   favorites.push(favorite);
-    //   localStorage.setItem("favorites", JSON.stringify(favorites));
-      // let exist = false;
-      // favorites.forEach((item) => {
-      //   if (item.id === favorite.id) {
-      //     exist = true;
-      //   }
-      // });
-
-      // if (exist) {
-      //   alert("Product already added to favorites");
-      // } else {
-      //   favorites.push(favorite);
-      //   localStorage.setItem("favorites", JSON.stringify(favorites));
-      // }
-    // }
   };
 
   return (

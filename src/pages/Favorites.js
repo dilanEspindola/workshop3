@@ -12,12 +12,8 @@ const Favorites = () => {
     return favorites;
   };
 
-  const handleClickRemoveFavorites = (id) => {
-    const favorites = JSON.parse(localStorage.getItem("favorites"));
-    // const newFavorites = favorites.filter((favorite) => favorite.id !== id);
-    // localStorage.setItem("favorites", JSON.stringify(newFavorites));
+  const handleClickRemoveFavorites = () => {
     console.log("remove");
-    return favorites;
   };
 
   return (
@@ -30,8 +26,9 @@ const Favorites = () => {
           overflow-x-hidden
         "
     >
-      {getFavorites().map((favorite) => (
-        <Card className="relative w-full h-[220px] border-2" variant="outlined">
+      FAVORITOS
+      {getFavorites()?.map((favorite) => (
+        <Card className="relative w-full h-[220px] border-2" variant="outlined" key={favorite.id}>
           <div
             className="
           flex justify-center
