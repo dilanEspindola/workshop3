@@ -5,6 +5,7 @@ import "./index.css";
 import { AuthProvider } from "./context/AuthContext";
 import { Provider } from "react-redux";
 import store from "./redux/store/store";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 // Material Ui
 import { ThemeProvider } from "@mui/material/styles";

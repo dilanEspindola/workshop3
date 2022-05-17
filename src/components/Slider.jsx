@@ -1,30 +1,13 @@
+// Base
 import React from "react";
 
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+// Carousel
+import { Carousel } from 'react-responsive-carousel';
 
 const Slider = () => {
   return (
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      centeredSlides={true}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
-      pagination={{ clickable: true }}
-      navigation
-      className="mySwiper"
-    >
-      <SwiperSlide>
+    <Carousel>
+      <div>
         <figure className="ImageWrapper">
           <img
             className="imageSlide"
@@ -33,8 +16,8 @@ const Slider = () => {
             title="card"
           />
         </figure>
-      </SwiperSlide>
-      <SwiperSlide>
+      </div>
+      <div>
         <figure className="ImageWrapper">
           <img
             className="imageSlide"
@@ -43,8 +26,8 @@ const Slider = () => {
             title="card"
           />
         </figure>
-      </SwiperSlide>
-      <SwiperSlide>
+      </div>
+      <div>
         <figure className="ImageWrapper">
           <img
             className="imageSlide"
@@ -53,8 +36,8 @@ const Slider = () => {
             title="card"
           />
         </figure>
-      </SwiperSlide>
-    </Swiper>
+      </div>
+    </Carousel>
   );
 };
 

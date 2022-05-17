@@ -22,7 +22,6 @@ const CardProduct = (props) => {
     <Card
       className="relative w-full h-[220px] border-2"
       variant="outlined"
-      onClick={handlerCLickCard}
     >
       <div
         className="
@@ -44,7 +43,7 @@ const CardProduct = (props) => {
         </IconButton>
       </div>
 
-      <div className="text-sm p-1">
+      <div className="text-sm p-1" onClick={handlerCLickCard}>
         <h3 className="mb-1 font-light">{props.name}</h3>
         <p className="font-normal">{props.price}</p>
       </div>

@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="flex flex-row justify-evenly cursor-pointer mt-5 sticky">
+    <div
+      className="
+        fixed bottom-0 left-0
+        grid grid-cols-4
+        justify-items-center content-center
+        w-full h-11 bg-white
+      "
+    >
       <Link to="/">
         <svg
           width="26"

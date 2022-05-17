@@ -12,11 +12,17 @@ const Search = () => {
     dispatch(searchProduct(search));
   };
   return (
-    <div className="mt-5 ml-5">
+    <div className="w-full my-5">
       <form className="place-items-center" onSubmit={handleSearchSubmit}>
         <input
           type="text"
-          className="text-gray-400 border-solid border-2 border-gray-400 p-2 rounded-lg w-64"
+          className="
+            p-2
+            text-gray-400
+            border-solid border-2
+            border-gray-400
+            rounded-lg w-full
+          "
           placeholder="Search"
           name="search"
         />
