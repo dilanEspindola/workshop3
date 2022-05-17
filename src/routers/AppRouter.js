@@ -4,11 +4,12 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 // private routes
 import User from "../pages/User";
 import Home from "../pages/Home";
-// import PrivateRoutes from "./PrivateRoutes";
+import Detail from "../pages/Detail";
+import Cart from "../pages/Cart";
+
 import { ProctedRoutes } from "../components/ProctedRoutes";
 // public routes
 import PublicRoutes from "./PublicRoutes";
-import Detail from "../pages/Detail";
 
 const AppRouter = () => {
   return (
@@ -28,6 +29,15 @@ const AppRouter = () => {
           element={
             <ProctedRoutes>
               <User />
+            </ProctedRoutes>
+          }
+        />
+
+        <Route
+          path="cart"
+          element={
+            <ProctedRoutes>
+              <Cart />
             </ProctedRoutes>
           }
         />

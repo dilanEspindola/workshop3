@@ -71,9 +71,6 @@ export const getProduct = (id) => {
 
     const myDocRef = doc(db, "api-merch", idProduct);
     const myDoc = await getDoc(myDocRef);
-    if (myDoc.exists()) {
-      // console.log("Document data:", myDoc.data());
-    }
 
     dispatch(getProductSync(myDoc));
   };

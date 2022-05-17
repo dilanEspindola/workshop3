@@ -15,14 +15,11 @@ const CardProduct = (props) => {
   const navigate = useNavigate();
 
   const handlerCLickCard = () => {
-    dispatch(getProduct(props.id));
+    // dispatch(getProduct(props.id));
     navigate(`/detail/${props.id}`);
   };
   return (
-    <Card
-      className="relative w-full h-[220px] border-2"
-      variant="outlined"
-    >
+    <Card className="relative w-full h-[220px] border-2" variant="outlined">
       <div
         className="
           flex justify-center
