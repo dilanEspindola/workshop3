@@ -18,6 +18,20 @@ const CardProduct = (props) => {
     // dispatch(getProduct(props.id));
     navigate(`/detail/${props.id}`);
   };
+
+  const handleClickFavorites = () => {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    if (favorites.find((favorite) => favorite.id === props.id)) {
+      alert("Product already added to favorites");
+    } else {
+      favorites.push(props);
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    console.log(favorites);
+  };
+
   return (
     <Card className="relative w-full h-[220px] border-2" variant="outlined">
       <div
@@ -35,7 +49,7 @@ const CardProduct = (props) => {
       </div>
 
       <div className="absolute top-0 right-0">
-        <IconButton>
+        <IconButton onClick={handleClickFavorites}>
           <FavoriteBorderIcon />
         </IconButton>
       </div>
