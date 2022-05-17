@@ -7,6 +7,7 @@ import {
   FacebookAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signOut
 } from "firebase/auth";
 
 export const context = createContext();
@@ -35,6 +36,10 @@ export const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  const cerrarSesion = async () => {
+    await signOut(auth);
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (usuarioActual) => {
       setUserState(usuarioActual);
@@ -49,6 +54,7 @@ export const AuthProvider = ({ children }) => {
         signInWithFacebook,
         userEmailPassword,
         loginEmailPassword,
+        cerrarSesion,
         userState,
         loading,
       }}
