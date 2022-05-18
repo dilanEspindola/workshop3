@@ -1,6 +1,6 @@
 # Block Master
 
-![image](https://res.cloudinary.com/dp9zv16le/image/upload/v1652838710/Captura_de_pantalla_1103_ifxlgp.png)
+![image](https://res.cloudinary.com/dp9zv16le/image/upload/v1652838918/Captura_de_pantalla_1104_nl8ynd.png)
 
 Una aplicacion web donde puedes encontrar varias peliculas y ver sus trailers, cuenta con registro, login y con autenticacion con facebook y google
 
