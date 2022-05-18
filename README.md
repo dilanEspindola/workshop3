@@ -35,4 +35,4 @@ vercel: https://vercel.com/
 
 
 ## Despliegue de la aplicacion
-* [Url del despliegue](https://workshop3-sand.vercel.app/)
+* [despliegue](https://workshop3-sand.vercel.app/)
