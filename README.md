@@ -20,7 +20,7 @@ npm start - inicia el proyecto
 ```
 
 
-## Despligue
+## Plataforma de depliegue
 
 Deploy del frontend:
 vercel: https://vercel.com/
@@ -32,3 +32,7 @@ vercel: https://vercel.com/
 * [Redux](https://redux.js.org/) - libreria para administrar estados
 * [TailwindCSS](https://tailwindcss.com/) - framework css usado
 * [MateerailUI](https://mui.com/) - framework css usado
+
+
+## Despliegue de la aplicacion
+* [](https://workshop3-sand.vercel.app/)
