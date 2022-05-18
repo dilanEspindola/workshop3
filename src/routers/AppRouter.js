@@ -6,10 +6,10 @@ import User from "../pages/User";
 import Home from "../pages/Home";
 import Detail from "../pages/Detail";
 import Cart from "../pages/Cart";
+import Favorites from "../pages/Favorites";
 
 import { ProctedRoutes } from "../components/ProctedRoutes";
 // public routes
-import PublicRoutes from "./PublicRoutes";
 
 const AppRouter = () => {
   return (
@@ -50,6 +50,16 @@ const AppRouter = () => {
             </ProctedRoutes>
           }
         />
+        
+        <Route
+          path="/favorites"
+          element={
+            <ProctedRoutes>
+              <Favorites />
+            </ProctedRoutes>
+          }
+        />
+
         {/*  public routes */}
         <Route path="*" element={<PublicRoutes />} />
       </Routes>
