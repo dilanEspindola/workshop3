@@ -31,4 +31,4 @@ vercel: https://vercel.com/
 * [Firebase](https://firebase.google.com/) - servicio en la nube usado
 * [Redux](https://redux.js.org/) - libreria para administrar estados
 * [TailwindCSS](https://tailwindcss.com/) - framework css usado
-* * [MateerailUI](https://mui.com/) - framework css usado
+* [MateerailUI](https://mui.com/) - framework css usado
