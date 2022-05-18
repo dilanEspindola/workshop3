@@ -5,15 +5,6 @@ const Cart = () => {
   const [contador, setContador] = useState(1);
   const getData = getDataLocalStorage();
 
-  const increment = (id) => {
-    const getId = getData.find((product) => product.id == id);
-    if (getId) {
-      setContador((prev) => prev + 1);
-      console.log(contador);
-      console.log(getId.id);
-    }
-  };
-
   return (
     <div className="p-3 flex flex-col gap-5">
       {getData.map((product) => (
@@ -32,7 +23,7 @@ const Cart = () => {
             <div className="ml-20 flex gap-2p-4">
               <button> - </button>
               <p>{contador}</p>
-              <button onClick={() => increment(product.id)}>+</button>
+              <button>+</button>
             </div>
           </div>
         </div>
