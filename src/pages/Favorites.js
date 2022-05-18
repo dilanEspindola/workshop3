@@ -1,6 +1,6 @@
 // Material UI
 import { Card, IconButton } from "@mui/material";
-import ReactImageMagnify from 'react-image-magnify'
+// import ReactImageMagnify from 'react-image-magnify'
 
 // Icons
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -56,7 +56,7 @@ const Favorites = () => {
                       bg-gradient-to-r from-[#7FE0F2] via-white to-[#FCFFFF]
                     "
                   >
-                    <ReactImageMagnify {...{
+                    {/* <ReactImageMagnify {...{
                       smallImage: {
                         alt: `${favorite.name}`,
                         isFluidWidth: true,
@@ -70,6 +70,11 @@ const Favorites = () => {
                         height: 330
                       }
                     }}
+                    /> */}
+                    <img
+                      className=" w-full h-[130px] object-cover object-top"
+                      src={favorite.img}
+                      alt={favorite.name}
                     />
                   </div>
 
