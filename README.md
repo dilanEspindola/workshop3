@@ -1,8 +1,8 @@
-# Block Master
+# My Merch
 
 ![image](https://res.cloudinary.com/dp9zv16le/image/upload/v1652838918/Captura_de_pantalla_1104_nl8ynd.png)
 
-Una aplicacion web donde puedes encontrar varias peliculas y ver sus trailers, cuenta con registro, login y con autenticacion con facebook y google
+Una aplicacion web donde puedes encotrar ropa, añadirla a favoritos y comprar la ropa que quieras
 
 ## Getting Started
 
@@ -31,3 +31,4 @@ vercel: https://vercel.com/
 * [Firebase](https://firebase.google.com/) - servicio en la nube usado
 * [Redux](https://redux.js.org/) - libreria para administrar estados
 * [TailwindCSS](https://tailwindcss.com/) - framework css usado
+* * [MateerailUI](https://mui.com/) - framework css usado
