@@ -1,21 +1,41 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Navbar from "../components/Navbar";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { listProductosAsync } from "../redux/actions/productsActions";
+import { addCartToLocalStorage } from "../services/localStorage";
 
 const Detail = () => {
-  const { img, name, price, description, size, color, category } = useSelector(
-    (store) => store.products
-  );
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const { products } = useSelector((store) => store.products);
+
+  useEffect(() => {
+    dispatch(listProductosAsync());
+  }, [dispatch]);
+
+  if (products < 1) return <h1>loading...</h1>;
+
+  const singleProduct = products.find((product) => product.id == id);
+
+  const handleCart = (data) => {
+    addCartToLocalStorage(data);
+  };
+
   return (
     <div className="flex flex-col text-center h-screen">
-      <img src={img} alt={name} />
-      <h1>{name}</h1>
-      <span>{price}</span>
-      <p>{description}</p>
-      <p>{size}</p>
-      <p>{color}</p>
-      <p>{category}</p>
-      <Navbar />
+      <img src={singleProduct.img} alt={singleProduct.name} />
+      <h1>{singleProduct.name}</h1>
+      <span>{singleProduct.price}</span>
+      <p>{singleProduct.description}</p>
+      <p>{singleProduct.size}</p>
+      <p>{singleProduct.color}</p>
+      <p>{singleProduct.category}</p>
+      <button
+        className="border-12 bg-slate-200 w-6/12 mx-auto mt-5"
+        onClick={() => handleCart(singleProduct)}
+      >
+        añadir al carrito
+      </button>
     </div>
   );
 };

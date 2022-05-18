@@ -15,7 +15,7 @@ const CardProduct = (props) => {
   const navigate = useNavigate();
 
   const handlerCLickCard = () => {
-    dispatch(getProduct(props.id));
+    // dispatch(getProduct(props.id));
     navigate(`/detail/${props.id}`);
   };
 
