@@ -10,6 +10,7 @@ import { ProctedRoutes } from "../components/ProctedRoutes";
 import PublicRoutes from "./PublicRoutes";
 import Detail from "../pages/Detail";
 import Favorites from "../pages/Favorites";
+import Cart from "../pages/Cart";
 
 const AppRouter = () => {
   return (
@@ -34,6 +35,15 @@ const AppRouter = () => {
         />
 
         <Route
+          path="/cart"
+          element={
+            <ProctedRoutes>
+              <Cart />
+            </ProctedRoutes>
+          }
+        />
+
+        <Route
           path="/detail/:id"
           element={
             <ProctedRoutes>
@@ -41,7 +51,7 @@ const AppRouter = () => {
             </ProctedRoutes>
           }
         />
-        
+
         <Route
           path="/favorites"
           element={
