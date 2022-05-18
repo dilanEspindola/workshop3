@@ -3,6 +3,7 @@ import React from "react";
 
 // Material UI
 import { Card, IconButton } from "@mui/material";
+import ReactImageMagnify from 'react-image-magnify'
 
 // Icons
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -41,11 +42,21 @@ const CardProduct = (props) => {
           bg-gradient-to-r from-[#7FE0F2] via-white to-[#FCFFFF]
         "
       >
-        <img
-          className=" w-full h-[130px] object-cover object-top"
-          src={props.img}
-          alt={props.name}
-        />
+      <ReactImageMagnify {...{
+        smallImage: {
+          alt: `${props.name}`,
+          isFluidWidth: true,
+          width: 100,
+          height: 130,
+          src: `${props.img}`
+        },
+        largeImage: {
+          src: `${props.img}`,
+          width: 300,
+          height: 330
+        }
+      }}
+      />
       </div>
 
       <div className="absolute top-0 right-0">

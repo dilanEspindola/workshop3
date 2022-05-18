@@ -7,6 +7,7 @@ import { listProductosAsync } from "../redux/actions/productsActions";
 
 // Components
 import CardProduct from "./CardProduct";
+import Loader from "./Loader";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const ProductList = () => {
         "
     >
       {products.length < 1 ? (
-        <h1>loading...</h1>
+        <Loader />
       ) : (
         products.map((product, index) => (
           <CardProduct

@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { listProductosAsync } from "../redux/actions/productsActions";
 import { addCartToLocalStorage } from "../services/localStorage";
+import Navbar from "../components/Navbar";
+import Loader from "../components/Loader";
 
 const Detail = () => {
   const { id } = useParams();
@@ -17,7 +19,7 @@ const Detail = () => {
 
   if (!products) return window.location.reload(true);
 
-  if (products < 1) return <h1>loading...</h1>;
+  if (products < 1) return <Loader />;
 
   const singleProduct = products.find((product) => product.id == id);
 
@@ -26,21 +28,44 @@ const Detail = () => {
   };
 
   return (
-    <div className="flex flex-col text-center h-screen">
-      <img src={singleProduct.img} alt={singleProduct.name} />
-      <h1>{singleProduct.name}</h1>
-      <span>{singleProduct.price}</span>
-      <p>{singleProduct.description}</p>
-      <p>{singleProduct.size}</p>
-      <p>{singleProduct.color}</p>
-      <p>{singleProduct.category}</p>
-      <button
-        className="border-12 bg-slate-200 w-6/12 mx-auto mt-5"
-        onClick={() => handleCart(singleProduct)}
-      >
-        añadir al carrito
-      </button>
-    </div>
+    <>
+      <div className="w-full h-screen p-4">
+        <div className="w-full flex flex-col">
+          <div className="h-[300px] flex justify-center items-center bg-[#7FE0F2]/30">
+            <img
+              className="w-[280px]"
+              src={singleProduct.img}
+              alt={singleProduct.name}
+            />
+          </div>
+
+          <section
+            className="flex items-center justify-between w-full h-auto my-4"
+          >
+            <h1 className="capitalize">{singleProduct.name}</h1>
+            <span className="font-semibold"> $ {singleProduct.price}</span>
+          </section>
+
+          <p className="text-left font-light mb-3">
+            {singleProduct.description}
+          </p>
+
+          <div className="flex justify-evenly w-full">
+            <p><span className="font-semibold">Talla: </span>{singleProduct.size}</p>
+            <p><span className="font-semibold">Calor: </span>{singleProduct.color}</p>
+          </div>
+
+          <button
+            className="w-full h-12 bg-primary mt-20 uppercase text-white rounded-md"
+            onClick={() => handleCart(singleProduct)}
+          >
+            añadir al carrito
+          </button>
+        </div>
+      </div>
+
+      <Navbar />
+    </>
   );
 };
 
