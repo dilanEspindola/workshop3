@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 
 // private routes
-import User from "../pages/User";
-import Home from "../pages/Home";
+import User from '../pages/User';
+import Home from '../pages/Home';
 // import PrivateRoutes from "./PrivateRoutes";
-import { ProctedRoutes } from "../components/ProctedRoutes";
+import { ProctedRoutes } from '../components/ProctedRoutes';
 // public routes
-import PublicRoutes from "./PublicRoutes";
-import Detail from "../pages/Detail";
-import Favorites from "../pages/Favorites";
+import PublicRoutes from './PublicRoutes';
+import Detail from '../pages/Detail';
+import Favorites from '../pages/Favorites';
 
 const AppRouter = () => {
   return (
@@ -17,7 +17,7 @@ const AppRouter = () => {
       <Routes>
         {/* private routes */}
         <Route
-          path="/"
+          path='/'
           element={
             <ProctedRoutes>
               <Home />
@@ -25,7 +25,7 @@ const AppRouter = () => {
           }
         />
         <Route
-          path="/user"
+          path='/user'
           element={
             <ProctedRoutes>
               <User />
@@ -34,16 +34,16 @@ const AppRouter = () => {
         />
 
         <Route
-          path="/detail/:id"
+          path='/detail/:id'
           element={
             <ProctedRoutes>
               <Detail />
             </ProctedRoutes>
           }
         />
-        
+
         <Route
-          path="/favorites"
+          path='/favorites'
           element={
             <ProctedRoutes>
               <Favorites />
@@ -52,7 +52,7 @@ const AppRouter = () => {
         />
 
         {/*  public routes */}
-        <Route path="*" element={<PublicRoutes />} />
+        <Route path='*' element={<PublicRoutes />} />
       </Routes>
     </BrowserRouter>
   );

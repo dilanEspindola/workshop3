@@ -1,7 +1,7 @@
-import React from "react";
-import User from "../pages/User";
-import Home from "../pages/Home";
-import { Route, Routes } from "react-router-dom";
+import React from 'react';
+import User from '../pages/User';
+import Home from '../pages/Home';
+import { Route, Routes } from 'react-router-dom';
 
 const PrivateRoutes = () => {
   return (

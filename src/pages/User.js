@@ -1,9 +1,9 @@
 // Base
-import React from "react";
-import Navbar from "../components/Navbar";
+import React from 'react';
+import Navbar from '../components/Navbar';
 
 // Components
-import Profile from "../components/Profile";
+import Profile from '../components/Profile';
 
 const User = () => {
   return (

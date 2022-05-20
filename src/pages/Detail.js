@@ -1,13 +1,13 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Navbar from "../components/Navbar";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Navbar from '../components/Navbar';
 
 const Detail = () => {
   const { img, name, price, description, size, color, category } = useSelector(
-    (store) => store.products
+    store => store.products
   );
   return (
-    <div className="flex flex-col text-center h-screen">
+    <div className='flex flex-col text-center h-screen'>
       <img src={img} alt={name} />
       <h1>{name}</h1>
       <span>{price}</span>

@@ -7,4 +7,4 @@ module.exports.themeGeneral = {
   warning: '#fa8a24',
   info: '#2399ef',
   background: '#fff',
-}
+};

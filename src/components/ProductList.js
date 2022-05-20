@@ -1,17 +1,17 @@
 // Base
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 // Redux
-import { useDispatch, useSelector } from "react-redux";
-import { listProductosAsync } from "../redux/actions/productsActions";
+import { useDispatch, useSelector } from 'react-redux';
+import { listProductosAsync } from '../redux/actions/productsActions';
 
 // Components
-import CardProduct from "./CardProduct";
+import CardProduct from './CardProduct';
 
 const ProductList = () => {
   const dispatch = useDispatch();
 
-  const { products } = useSelector((store) => store.products);
+  const { products } = useSelector(store => store.products);
 
   useEffect(() => {
     dispatch(listProductosAsync());
@@ -21,13 +21,13 @@ const ProductList = () => {
 
   return (
     <div
-      className="
+      className='
           w-full h-full z-0
           grid grid-cols-2
           gap-6 gap-y-12 grid-flow-row auto-rows-max
           justify-items-stretch
           overflow-x-hidden
-        "
+        '
     >
       {products.length < 1 ? (
         <h1>loading...</h1>

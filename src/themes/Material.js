@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { themeGeneral } from "./bridge.js";
+import { themeGeneral } from './bridge.js';
 
 const theme = createTheme({
   palette: {
@@ -7,22 +7,22 @@ const theme = createTheme({
       main: themeGeneral.primary,
     },
     secondary: {
-      main: "#A7A9BE",
+      main: '#A7A9BE',
     },
     error: {
-      main: "#EF4444",
+      main: '#EF4444',
     },
     tertiary: {
-      main: "#0F0E17",
+      main: '#0F0E17',
     },
     quaternary: {
-      main: "#0E3FA9",
+      main: '#0E3FA9',
     },
     black: {
-      main: "#000000",
+      main: '#000000',
     },
     background: {
-      default: "#0F0E17",
+      default: '#0F0E17',
     },
   },
   breakpoints: {

@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { auth } from "../firebase/firebase";
+import { createContext, useContext, useEffect, useState } from 'react';
+import { auth } from '../firebase/firebase';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -7,8 +7,8 @@ import {
   FacebookAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
-  signOut
-} from "firebase/auth";
+  signOut,
+} from 'firebase/auth';
 
 export const context = createContext();
 
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    onAuthStateChanged(auth, (usuarioActual) => {
+    onAuthStateChanged(auth, usuarioActual => {
       setUserState(usuarioActual);
       setLoading(false);
     });

@@ -1,4 +1,4 @@
-import { types } from "../types/types";
+import { types } from '../types/types';
 
 const initialState = {
   products: [],
@@ -19,7 +19,7 @@ const productsReducer = (state = initialState, action) => {
     case types.deleteProduct:
       return {
         products: state.products.filter(
-          (product) => product.id !== action.payload
+          product => product.id !== action.payload
         ),
       };
 
